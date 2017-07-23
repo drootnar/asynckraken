@@ -1,0 +1,31 @@
+version: '2.1'
+services:
+
+  shell:
+    image: asynckraken-shell
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "pip install -e . && pip install aioconsole && apython"
+    volumes:
+      - ./:/usr/src/app/
+
+  tests-base:
+    image: asynckraken-tests
+    container_name: asynckraken-tests
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  tests:
+    extends: tests-base
+    volumes:
+      - ./:/usr/src/app/
+    command: bash -c "pip install -e . && python setup.py test"
+
+  full_tests:
+    container_name: asynckraken-full-tests
+    extends: tests-base
+    volumes:
+      - ./:/usr/src/app/
+    command: bash -c "pip install -e . && python setup.py full_test"
