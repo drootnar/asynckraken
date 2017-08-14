@@ -8,6 +8,10 @@ from .types import ApiMethod, ApiConfig
 from .auth import KrakenHMAC
 
 
+class ErrorResponse(Exception):
+    pass
+
+
 class Client(object):
     def __init__(
         self,
@@ -79,6 +83,6 @@ class Client(object):
                 result = await response.json()
 
         if response.status not in (200, 201, 202):
-            raise KeyError
+            raise ErrorResponse
 
         return result

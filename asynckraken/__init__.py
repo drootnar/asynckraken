@@ -1,2 +1,2 @@
-from .client import Client
-__all__ = ['Client']
+from .client import Client, ErrorResponse
+__all__ = ['Client', 'ErrorResponse']
