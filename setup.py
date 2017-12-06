@@ -22,7 +22,7 @@ setup(
       'Programming Language :: Python :: 3',
     ],
     install_requires=[
-        'aiohttp==2.2.0'
+        'aiohttp>=2.2.0'
     ],
     setup_requires=[
         'pytest-runner==2.9'
