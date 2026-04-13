@@ -28,7 +28,7 @@ setup(
         'pytest-runner==2.9'
     ],
     tests_require=[
-        'pytest==3.0.4',
+        'pytest==9.0.3',
         'pytest-aiohttp==0.1.3',
         'pytest-mypy==0.3.0',
         'pytest-flakes==1.0.1',
